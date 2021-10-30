@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Assignment1.Pages
+namespace Assignment2.Pages
 {
     #line hidden
     using System;
@@ -13,85 +13,85 @@ namespace Assignment1.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 1 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 2 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 4 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 5 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 6 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 7 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1;
+#line 8 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1.Shared;
+#line 9 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\ViewAdults.razor"
+#line 2 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\ViewAdults.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\ViewAdults.razor"
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\ViewAdults.razor"
 using System.Collections;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\ViewAdults.razor"
-using Assignment1.Data;
+#line 4 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\ViewAdults.razor"
+using Assignment2.Data;
 
 #line default
 #line hidden
@@ -105,7 +105,7 @@ using Assignment1.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 123 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\ViewAdults.razor"
+#line 129 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\ViewAdults.razor"
        
     private IList<Adult> allAdults;
     private IList<Adult> adultsToShow;
@@ -114,11 +114,19 @@ using Assignment1.Data;
     private string firstName;
     private string sex;
     private int? monthlySalary;
-    
+
     protected override async Task OnInitializedAsync()
     {
-        allAdults = Persistence.ReadAllAdults();
-        adultsToShow = allAdults;
+        try
+        {
+            allAdults = await Persistence.ReadAllAdults();
+            adultsToShow = allAdults;
+        }
+        catch (Exception e)
+        {
+
+            throw;
+        }
     }
 
     private void FilterByAdultId(ChangeEventArgs eventArgs)
@@ -147,8 +155,8 @@ using Assignment1.Data;
         ExecuteFilter();
     }
 
-    
-    
+
+
     private void FilterBySex(ChangeEventArgs changeEventArgs)
     {
         sex = null;
@@ -171,26 +179,26 @@ using Assignment1.Data;
 
     private void ExecuteFilter()
     {
-        adultsToShow = allAdults.Where(a => (id!=null && a.Id == id || id == null) &&
+        adultsToShow = allAdults.Where(a => (id != null && a.Id == id || id == null) &&
                                             (firstName != null && a.FirstName.Contains(firstName, StringComparison.OrdinalIgnoreCase) || firstName == null || firstName.Length == 0) &&
-                                            (sex!=null && a.Sex == sex || sex == null) ).ToList();
+                                            (sex != null && a.Sex == sex || sex == null)).ToList();
     }
 
-    private void RemoveAdult(int adultID)
+    private async void RemoveAdult(int adultID)
     {
         Adult adultToRemove = allAdults.First(a => a.Id == adultID);
-        Persistence.DeleteAdult(adultToRemove);
+        await Persistence.DeleteAdult(adultToRemove);
         allAdults.Remove(adultToRemove);
-        
-       
-       
+        NavigationManager.NavigateTo("/ViewAdults");
+
+
     }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAdultService Persistence { get; set; }
     }

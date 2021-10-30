@@ -1,9 +1,10 @@
-﻿using Assignment1.Models;
+﻿using Assignment2.Models;
+using System.Threading.Tasks;
 
-namespace Assignment1.Data
+namespace Assignment2.Data
 {
     public interface IUserService
     {
-        User ValidateUser(string userName, string password);
+       Task<User> ValidateUserAsync(string username, string password);
     }
 }

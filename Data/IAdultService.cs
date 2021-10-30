@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using Assignment1.Models;
-
-namespace Assignment1.Data
+using System.Threading.Tasks;
+using Assignment2.Models;
+namespace Assignment2.Data
 {
-    public interface IAdultService
-    {
-        void AddAdult(Adult adultToAdd);
-        IList<Adult> ReadAllAdults();
-        void UpdateAdult(Adult adultToUpdate);
-        void DeleteAdult(Adult adultToDelete);
-    }
+public interface IAdultService
+{
+    Task AddAdultAsync(Adult adultToAdd);
+    Task<IList<Adult>> ReadAllAdults();
+    Task UpdateAdult(Adult adultToUpdate);
+    Task DeleteAdult(Adult adultToDelete);
 }
+}
+

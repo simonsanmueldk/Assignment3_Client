@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Assignment1.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -10,11 +9,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Assignment1.Data;
-using Assignment1.Data.Impl;
+using Assignment2.Authentication;
+using Assignment2.Data;
 using Microsoft.AspNetCore.Components.Authorization;
+using Assignment2.Services;
 
-namespace Assignment1
+
+namespace Assignment2
 {
     public class Startup
     {
@@ -25,22 +26,25 @@ namespace Assignment1
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<IAdultService, PersistenceAdapter>();
-            services.AddScoped<IUserService, PersistenceUsers>();
+            services.AddHttpClient();
+            services.AddHttpClient("webapi",client => {
+                client.BaseAddress = new Uri(Configuration.GetSection("BaseAddress").Value);
+            });
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAdultService,AdultService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-            
+
+
             services.AddAuthorization(options => {
-                options.AddPolicy("SecurityLevel1",  a => 
-                    a.RequireAuthenticatedUser().RequireClaim("Level", "1", "2"));
-                
-                options.AddPolicy("SecurityLevel2",  a => 
-                    a.RequireAuthenticatedUser().RequireClaim("Level", "2"));
+                options.AddPolicy("SecurityLevel1", a =>
+                a.RequireAuthenticatedUser().RequireClaim("Level", "1", "2"));
+
+                options.AddPolicy("SecurityLevel2", a =>
+                a.RequireAuthenticatedUser().RequireClaim("Level", "2"));
             });
         }
 

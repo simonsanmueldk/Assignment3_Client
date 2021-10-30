@@ -13,71 +13,71 @@ namespace LoginComponent
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 1 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 2 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 4 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 5 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 6 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 7 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1;
+#line 8 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1.Shared;
+#line 9 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\Login.razor"
-using Assignment1.Authentication;
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\Login.razor"
+using Assignment2.Authentication;
 
 #line default
 #line hidden
@@ -91,7 +91,7 @@ using Assignment1.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\Login.razor"
+#line 29 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\Login.razor"
        
     private string username;
     private string password;
@@ -99,11 +99,29 @@ using Assignment1.Authentication;
 
     public async Task PerformLogin() {
         errorMessage = "";
-        try {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+        //try
+        //{
+        //    User user = await _UserService.ValidateUserAsync(username, password);
+        //    if (user == null)
+        //        errorMessage = "User not found";
+        //    else
+        //    {
+
+        //    }
+        //}
+
+        //catch (Exception e)
+        //{
+        //    errorMessage = e.Message;
+        //}
+        try
+        {
+            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).ValidateLoginAsync(username, password);
             username = "";
             password = "";
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             errorMessage = e.Message;
         }
     }

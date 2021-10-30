@@ -1,9 +1,8 @@
 ﻿@page "/Login"
 @namespace LoginComponent
-@using Assignment1.Authentication
+@using Assignment2.Authentication
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-
 <AuthorizeView>
     <NotAuthorized>
         <div class="form-group">
@@ -34,11 +33,29 @@
 
     public async Task PerformLogin() {
         errorMessage = "";
-        try {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+        //try
+        //{
+        //    User user = await _UserService.ValidateUserAsync(username, password);
+        //    if (user == null)
+        //        errorMessage = "User not found";
+        //    else
+        //    {
+
+        //    }
+        //}
+
+        //catch (Exception e)
+        //{
+        //    errorMessage = e.Message;
+        //}
+        try
+        {
+            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).ValidateLoginAsync(username, password);
             username = "";
             password = "";
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             errorMessage = e.Message;
         }
     }

@@ -1,5 +1,5 @@
 ﻿@page "/AddAdult"
-@using Assignment1.Data
+@using Assignment2.Data
 @using Models
 @inject IAdultService Persistence
 @inject NavigationManager NavigationManager
@@ -65,10 +65,10 @@
     private Adult adultToAdd = new Adult();
     private string errorLabel;
 
-    private void AddNewAdult()
+    private async void AddNewAdult()
     {
         Console.WriteLine("I am here--------");
-        Persistence.AddAdult(adultToAdd);
+        await Persistence.AddAdultAsync(adultToAdd);
         NavigationManager.NavigateTo("/ViewAdults");
     }
 }

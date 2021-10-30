@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Assignment1.Pages
+namespace Assignment2.Pages
 {
     #line hidden
     using System;
@@ -13,77 +13,77 @@ namespace Assignment1.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 1 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 2 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 4 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 5 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 6 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
+#line 7 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1;
+#line 8 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\_Imports.razor"
-using Assignment1.Shared;
+#line 9 "C:\Users\simon\Desktop\temp2\Assignment1\_Imports.razor"
+using Assignment2.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\AddAdult.razor"
-using Assignment1.Data;
+#line 2 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\AddAdult.razor"
+using Assignment2.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\AddAdult.razor"
+#line 3 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\AddAdult.razor"
 using Models;
 
 #line default
@@ -98,15 +98,15 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\simon\Documents\Semester 3\DNP\Assignments\Example\Assignment1-master\Pages\AddAdult.razor"
+#line 64 "C:\Users\simon\Desktop\temp2\Assignment1\Pages\AddAdult.razor"
        
     private Adult adultToAdd = new Adult();
     private string errorLabel;
 
-    private void AddNewAdult()
+    private async void AddNewAdult()
     {
         Console.WriteLine("I am here--------");
-        Persistence.AddAdult(adultToAdd);
+        await Persistence.AddAdultAsync(adultToAdd);
         NavigationManager.NavigateTo("/ViewAdults");
     }
 

@@ -1,5 +1,5 @@
 ﻿@page "/EditAdult"
-@using Assignment1.Data
+@using Assignment2.Data
 @using Models
 @inject IAdultService Persistence
 @inject NavigationManager NavigationManager
@@ -72,12 +72,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        allAdults = Persistence.ReadAllAdults().ToList();
+        allAdults = await Persistence.ReadAllAdults();
     }
     
-    private void UpdateAdult()
+    private async void UpdateAdult()
     {
-        Persistence.UpdateAdult(adultToEdit);
+        await Persistence.UpdateAdult(adultToEdit);
         NavigationManager.NavigateTo("/ViewAdults");
     }
 

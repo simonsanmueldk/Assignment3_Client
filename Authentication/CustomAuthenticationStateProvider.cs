@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Assignment1.Data;
-using Assignment1.Models;
+using Assignment2.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Assignment2.Models;
 
-namespace Assignment1.Authentication
+namespace Assignment2.Authentication
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
@@ -23,7 +23,7 @@ namespace Assignment1.Authentication
         }
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            var identity = new ClaimsIdentity();
+             var identity = new ClaimsIdentity();
             if (cachedUser == null) {
                 string userAsJson = await jsRuntime.InvokeAsync<string>("sessionStorage.getItem", "currentUser");
                 if (!string.IsNullOrEmpty(userAsJson)) {
@@ -38,19 +38,23 @@ namespace Assignment1.Authentication
             ClaimsPrincipal cachedClaimsPrincipal = new ClaimsPrincipal(identity);
             return await Task.FromResult(new AuthenticationState(cachedClaimsPrincipal));
         }
-        public void ValidateLogin(string username, string password) {
+        public async Task ValidateLoginAsync(string username, string password) {
             Console.WriteLine("Validating log in");
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
             if (string.IsNullOrEmpty(password)) throw new Exception("Enter password");
 
             ClaimsIdentity identity = new ClaimsIdentity();
-            try {
-                User user = userService.ValidateUser(username, password);
+            try
+            {
+
+                User user = await userService.ValidateUserAsync(username, password);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+                await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 throw e;
             }
 
