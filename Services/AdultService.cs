@@ -1,6 +1,4 @@
-﻿using Assignment2.Data;
-using Assignment2.Models;
-using Microsoft.JSInterop;
+﻿using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,8 +7,10 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment3.Data;
+using Assignment3.Models;
 
-namespace Assignment2.Services
+namespace Assignment3.Services
 {
     public class AdultService : IAdultService
     {
@@ -79,8 +79,7 @@ namespace Assignment2.Services
         public async Task<IList<Adult>> ReadAllAdults()
         {
             List<Adult> result = null;
-           // string authentication = await GetAuthentication(jsRuntime);
-           // httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authentication);
+          
             try
             {
                 var response = await httpClient.GetAsync("Adult/All");

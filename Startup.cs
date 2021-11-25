@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Assignment2.Authentication;
-using Assignment2.Data;
 using Microsoft.AspNetCore.Components.Authorization;
-using Assignment2.Services;
+using Assignment3.Authentication;
+using Assignment3.Data;
+using Assignment3.Services;
 
 
-namespace Assignment2
+namespace Assignment3
 {
     public class Startup
     {

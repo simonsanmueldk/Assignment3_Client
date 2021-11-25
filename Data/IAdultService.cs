@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Assignment2.Models;
-namespace Assignment2.Data
+using Assignment3.Models;
+
+namespace Assignment3.Data
 {
 public interface IAdultService
 {

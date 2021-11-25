@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "29H1N7h9A5JVJ69G5hTomuYAhmRmXALZ0J7JT/+Mx6RzYJgfMa7VlIDSNaWDCZ0nF1EVwdpNfdyuRj5yAcxSRg==",
+  "dgSpecHash": "vIrP2MOiNU3oY3Xd7Y2/RmgpU7EFVceca45roeuUIor4rS5hBBPW3MKBQW3AmBClVokKsMevzHTL4zqwAZsLow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simon\\Desktop\\Final Assignment 2\\Assignment2\\Assignment2.csproj",
+  "projectFilePath": "C:\\Users\\simon\\Desktop\\Assignment 3\\Assignment3_Client\\Assignment3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simon\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
     "C:\\Users\\simon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Assignment2.Models
+namespace Assignment3.Models
 {
     public class Person
     {

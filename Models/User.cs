@@ -1,4 +1,4 @@
-﻿namespace Assignment2.Models
+﻿namespace Assignment3.Models
 {
     public class User
     {

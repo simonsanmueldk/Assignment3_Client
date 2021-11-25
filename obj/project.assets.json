@@ -391,11 +391,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simon\\Desktop\\Final Assignment 2\\Assignment2\\Assignment2.csproj",
-      "projectName": "Assignment2",
-      "projectPath": "C:\\Users\\simon\\Desktop\\Final Assignment 2\\Assignment2\\Assignment2.csproj",
+      "projectUniqueName": "C:\\Users\\simon\\Desktop\\Assignment 3\\Assignment3_Client\\Assignment3.csproj",
+      "projectName": "Assignment3",
+      "projectPath": "C:\\Users\\simon\\Desktop\\Assignment 3\\Assignment3_Client\\Assignment3.csproj",
       "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simon\\Desktop\\Final Assignment 2\\Assignment2\\obj\\",
+      "outputPath": "C:\\Users\\simon\\Desktop\\Assignment 3\\Assignment3_Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

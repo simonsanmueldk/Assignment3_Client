@@ -1,7 +1,7 @@
-﻿using Assignment2.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Assignment3.Models;
 
-namespace Assignment2.Data
+namespace Assignment3.Data
 {
     public interface IUserService
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Assignment2.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using Assignment2.Models;
+using Assignment3.Data;
+using Assignment3.Models;
 
-namespace Assignment2.Authentication
+namespace Assignment3.Authentication
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {

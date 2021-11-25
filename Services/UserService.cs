@@ -1,5 +1,4 @@
-﻿using Assignment2.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,11 +6,12 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Assignment2.Data;
 using Newtonsoft.Json;
 using System.Security.Claims;
+using Assignment3.Data;
+using Assignment3.Models;
 
-namespace Assignment2.Services
+namespace Assignment3.Services
 {
     public class UserService : IUserService
     {
